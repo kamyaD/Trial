@@ -83,71 +83,91 @@ class SignUpPage extends Component {
 
   isFormValid = () => {
     const { errors, data } = this.state;
-    return !Object.values({ ...errors, ...data }).findIndex(value => value !== "");
+    return !Object.values({ ...errors, ...data }).findIndex(
+      value => value !== ""
+    );
   };
 
   render() {
     const { errors, submitError } = this.state;
 
     return (
-      <div className="auth__signup">
-        <h1>Create an account </h1>
-        <div className="auth__form">
-          <div className="ui form field">
-            <input
-              autoComplete="off"
-              placeholder="Username"
-              type="text"
-              name="username"
-              id="username"
-              onChange={this.handleChange}
-              required
-            />
-            {errors.username ? <p>{errors.username}</p> : ""}
+      <div className="auth-wrapper">
+        <div className="auth-content">
+          <div className="auth-bg">
+            <span className="r" />
+            <span className="r s" />
+            <span className="r s" />
+            <span className="r" />
           </div>
-          <div className="ui form field">
-            <input
-              autoComplete="off"
-              placeholder="johndoe@email.com"
-              type="text"
-              name="email"
-              id="email"
-              onChange={this.handleChange}
-              required
-            />
-            {errors.email ? <p>{errors.email}</p> : ""}
-          </div>
-          <div className="ui form field block">
-            <input
-              autoComplete="off"
-              placeholder="Password"
-              type="password"
-              name="password"
-              id="password"
-              onChange={this.handleChange}
-              required
-            />
-            {errors.password ? <p>{errors.password}</p> : ""}
-          </div>
-          <div className="ui form field">
-            <input
-              autoComplete="off"
-              placeholder="Confirm Password"
-              type="password"
-              name="confirmPassword"
-              id="confirm-password"
-              onChange={this.handleConfirmPassword}
-              required
-            />
-            {errors.confirmPassword ? <p>{errors.confirmPassword}</p> : ""}
-          </div>
+          <div className="card">
+            <div className="card-body text-center">
+              <div className="mb-4">
+                <i className="feather icon-user-plus auth-icon">r</i>
+              </div>
+              <h3 className="mb-4">Sign up</h3>
+              <div className="input-group mb-3">
+                <input
+                  autoComplete="off"
+                  placeholder="Username"
+                  className="form-control"
+                  type="text"
+                  name="username"
+                  id="username"
+                  onChange={this.handleChange}
+                  required
+                />
+                {errors.username ? <p>{errors.username}</p> : ""}
+              </div>
+              <div className="input-group mb-3">
+                <input
+                  autoComplete="off"
+                  placeholder="johndoe@email.com"
+                  type="text"
+                  name="email"
+                  id="email"
+                  className="form-control"
+                  onChange={this.handleChange}
+                  required
+                />
+                {errors.email ? <p>{errors.email}</p> : ""}
+              </div>
 
-          <div className="ui form field">
-            {submitError ? <p>{submitError}</p> : ""}
+              <div className="input-group mb-3">
+                <input
+                  autoComplete="off"
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  id="password"
+                  className="form-control"
+                  onChange={this.handleChange}
+                  required
+                />
+                {errors.password ? <p>{errors.password}</p> : ""}
+              </div>
 
-            <button type="button" onClick={this.handleSubmit}>
-              Sign up
-            </button>
+              <div className="input-group mb-3">
+                <input
+                  autoComplete="off"
+                  placeholder="Confirm Password"
+                  type="password"
+                  name="confirmPassword"
+                  id="confirm-password"
+                  className="form-control"
+                  onChange={this.handleConfirmPassword}
+                  required
+                />
+                {errors.confirmPassword ? <p>{errors.confirmPassword}</p> : ""}
+              </div>
+
+              <button type="submit" className="btn btn-primary shadow-2 mb-4">
+                Sign up
+              </button>
+              <p className="mb-0 text-muted">
+                Allready have an account? <a href="auth-signin.html"> Log in</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
