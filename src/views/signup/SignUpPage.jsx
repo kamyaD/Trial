@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import AuthenticationAPI from "../../api/AuthenticationAPI";
+import '../../assets/css/style.css';
 
 const ERROR_MESSAGES = {
   username:
@@ -161,6 +162,7 @@ class SignUpPage extends Component {
                 {errors.confirmPassword ? <p>{errors.confirmPassword}</p> : ""}
               </div>
 
+              {submitError ? <p>{submitError}</p> : ""}
               <button type="submit" className="btn btn-primary shadow-2 mb-4">
                 Sign up
               </button>
